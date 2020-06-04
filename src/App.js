@@ -1,26 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Example IF/Else
+export default function JsxTernaryOperatorIfElseExample() {
+    const counter = 0;
+
+    return (
+        <>
+            {counter === 0 ? ( 
+                <h2>Counter is equal to 0</h2>
+                ) : <h2>Counter is greater than 0</h2>
+            }
+        </>
+    );
 }
-
-export default App;
