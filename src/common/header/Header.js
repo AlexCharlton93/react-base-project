@@ -15,12 +15,13 @@ const HeaderWrapper = styled.section`
         color: blue;
       }
     }
-    .nav-right {
-      a {
-        padding-left: 20px;
-      }
-    }
   }
+`;
+
+const NavRight = styled.section`
+    a {
+      padding-left: 20px;
+    }
 `;
 
 export default function Header() {
@@ -34,10 +35,10 @@ export default function Header() {
             <Nav className="mr-auto">
               <Link to="/">Home</Link>
             </Nav>
-            <Nav className="nav-right" pullRight>
-              <Link to="/login">Login</Link>
-              <Link to="/register">Register</Link>
-            </Nav>
+            <NavRight pullRight>
+                <Link to="/login">Login</Link>
+                <Link to="/register">Register</Link>
+            </NavRight>
           </Navbar.Collapse>
         </Container>
       </Navbar>
