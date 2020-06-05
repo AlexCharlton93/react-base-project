@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import { Container } from "react-bootstrap";
 
 const HomeWrapper = styled.section`
   p {
@@ -10,7 +11,9 @@ const HomeWrapper = styled.section`
 export default function Home() {
   return (
     <HomeWrapper>
-      <p>Home</p>
+      <Container>
+        <p>Home</p>
+      </Container>
     </HomeWrapper>
   );
 }
