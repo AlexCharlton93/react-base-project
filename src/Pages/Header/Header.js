@@ -1,11 +1,10 @@
 import React from "react";
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import { Nav, Navbar, Container } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <>
+    <Container>
       <Navbar bg="light" expand="lg">
         <Navbar.Brand href="home">DynoForm</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -17,6 +16,6 @@ export default function Header() {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-    </>
+    </Container>
   );
 }
