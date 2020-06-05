@@ -8,11 +8,18 @@ const HeaderWrapper = styled.section`
     background: black;
     a {
       color: white;
+      text-decoration: none;
+      font-size: 18px;
+  
+      &:hover {
+        color: red;
+      }
     }
+  
     .navbar-brand {
       color: white;
       &:hover {
-        color: blue;
+        color: red;
       }
     }
   }
@@ -21,6 +28,7 @@ const HeaderWrapper = styled.section`
 const NavRight = styled.section`
     a {
       padding-left: 20px;
+      text-decoration: none;
     }
 `;
 
