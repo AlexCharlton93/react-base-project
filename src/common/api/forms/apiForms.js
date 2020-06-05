@@ -18,7 +18,8 @@ const apiFormsMocked = () => {
     const forms = [
         {
             id: '1',
-            name: 'test form',
+            name: 'Test form',
+            description: 'Form description',
             questions: [
                 {
                     id: "1",
@@ -36,7 +37,9 @@ const apiFormsMocked = () => {
             ],
         },
         {
-
+            id: '2',
+            name: 'Another Form',
+            description: 'Form description 2',
         }
     ];
 
