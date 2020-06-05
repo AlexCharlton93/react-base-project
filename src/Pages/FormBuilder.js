@@ -1,7 +1,7 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import styled from "styled-components";
-import { Container } from "react-bootstrap";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
+import { Container } from 'react-bootstrap';
 
 const ComponentWrapper = styled.section`
   p {

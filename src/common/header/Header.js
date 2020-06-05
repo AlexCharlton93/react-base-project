@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components';
-import { Nav, Navbar, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Nav, Navbar, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const HeaderWrapper = styled.section`
   nav {
@@ -9,6 +9,7 @@ const HeaderWrapper = styled.section`
     a {
       color: white;
       text-decoration: none;
+      padding-left: 20px;
       font-size: 18px;
   
       &:hover {
@@ -18,6 +19,8 @@ const HeaderWrapper = styled.section`
   
     .navbar-brand {
       color: white;
+      padding-left: 0px;
+
       &:hover {
         color: red;
       }
@@ -25,12 +28,7 @@ const HeaderWrapper = styled.section`
   }
 `;
 
-const NavRight = styled.section`
-    a {
-      padding-left: 20px;
-      text-decoration: none;
-    }
-`;
+const NavRight = styled.section``;
 
 export default function Header() {
   return (
@@ -42,6 +40,7 @@ export default function Header() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Link to="/">Home</Link>
+              <Link to="/forms">Forms</Link>
             </Nav>
             <NavRight pullRight>
                 <Link to="/login">Login</Link>
