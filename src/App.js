@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Header from './Pages/Header/Header'
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -17,6 +18,8 @@ import {
 
 export default function BasicExample() {
   return (
+    <>
+    <Header />
     <Router>
       <div>
         <ul>
@@ -53,6 +56,7 @@ export default function BasicExample() {
         </Switch>
       </div>
     </Router>
+    </>
   );
 }
 
