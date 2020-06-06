@@ -2,7 +2,7 @@ import React from "react";
 // import { useDispatch } from 'react-redux';
 import styled from "styled-components";
 import { Container, Table, Button } from "react-bootstrap";
-import { formsQuery } from "../common/api/forms/apiForms";
+import { formsQuery } from "../actions/forms";
 
 const ComponentWrapper = styled.section`
     p {
