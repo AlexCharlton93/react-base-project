@@ -1,47 +1,22 @@
-import axios from 'axios';
-// import Endpoints from '../../endpoints/Endpoints';
+// import axios from 'axios';
+// import _forms from "./forms.json";
+// import { FORMS_GET } from "../../constants/ActionTypes";
+import forms from "../../api/forms/forms";
+import * as types from "../../constants/ActionTypes";
 
-export const formsQuery = (query = {}) => ({
-    filterById: Id => formsQuery({ ...query, Id }),
-    run: () => apiForms(query),
-    runMocked: () => apiFormsMocked(query)
+// export const formsQuery = (query = {}) => ({
+//     filterById: (Id) => formsQuery({ ...query, Id }),
+//     // run: () => getForms(query),
+//     runMocked: () => getMockedForms(query),
+// });
+
+const receiveForms = (forms) => ({
+    type: types.FORMS_GET,
+    forms,
 });
 
-const apiForms = queryParams => async dispatch => {
-    // dispatch(apiGet(Endpoints.FORMS_GET, ['forms'], queryParams));
-    axios.get('https://apiname.co.uk/api/forms').then(res => {
-        // Todo: This needs work, need to integrate redux...
+export const getAllForms = () => (dispatch) => {
+    forms.getForms((forms) => {
+        dispatch(receiveForms(forms));
     });
-}
-
-const apiFormsMocked = () => {
-    const forms = [
-        {
-            id: '1',
-            name: 'Test form',
-            description: 'Form description',
-            questions: [
-                {
-                    id: "1",
-                    question: "Welcome to DynoForm",
-                    ordinal: 1,
-                    text: "Let us know what you are interested in, and we will do the rest",
-                    type: "horizontal",
-                    answerType: "information-only",
-                    buttonId: "3fbf796c-f078-4926-9641-95893584d123",
-                    buttonText: "Lets do this!",
-                    validationRequired: false,
-                    validationRule: "",
-                    Answers: []
-                }
-            ],
-        },
-        {
-            id: '2',
-            name: 'Another Form',
-            description: 'Form description 2',
-        }
-    ];
-
-    return forms;
-}
+};

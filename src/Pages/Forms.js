@@ -1,8 +1,7 @@
 import React from "react";
-// import { useDispatch } from 'react-redux';
+import { connect } from "react-redux";
 import styled from "styled-components";
 import { Container, Table, Button } from "react-bootstrap";
-import { formsQuery } from "../actions/forms";
 
 const ComponentWrapper = styled.section`
     p {
@@ -14,8 +13,6 @@ const ComponentWrapper = styled.section`
 `;
 
 const FormsTable = ({ data }) => {
-    // const dispatch = useDispatch();
-
     return (
         <Table striped bordered hover>
             <thead>
@@ -41,9 +38,34 @@ const FormsTable = ({ data }) => {
                             <h3>{form.description}</h3>
                         </th>
                         <th>
-                            <Button variant="primary" onClick={() => console.log('Take me to the form')}>Edit</Button>
-                            <Button variant="danger" onClick={() => console.log('Modal asking if they are sure they want to delete')}>Delete</Button>
-                            <Button variant="secondary" onClick={() => console.log('Actual preview of the form (as if embedded on own website)')}>Preview</Button>
+                            <Button
+                                variant="primary"
+                                onClick={() =>
+                                    console.log("Take me to the form")
+                                }
+                            >
+                                Edit
+                            </Button>
+                            <Button
+                                variant="danger"
+                                onClick={() =>
+                                    console.log(
+                                        "Modal asking if they are sure they want to delete"
+                                    )
+                                }
+                            >
+                                Delete
+                            </Button>
+                            <Button
+                                variant="secondary"
+                                onClick={() =>
+                                    console.log(
+                                        "Actual preview of the form (as if embedded on own website)"
+                                    )
+                                }
+                            >
+                                Preview
+                            </Button>
                         </th>
                     </tr>
                 ))}
@@ -52,16 +74,19 @@ const FormsTable = ({ data }) => {
     );
 };
 
-export default function Forms() {
-    const formData = formsQuery().runMocked();
-    console.log("formData", formData);
-
+const Forms = ({ forms }) => {
     return (
         <ComponentWrapper>
             <Container>
                 <p>Forms</p>
-                <FormsTable data={formData} />
+                <FormsTable data={forms} />
             </Container>
         </ComponentWrapper>
     );
-}
+};
+
+const mapStateToProps = (state) => ({
+    forms: state.forms,
+});
+
+export default connect(mapStateToProps, {})(Forms);
