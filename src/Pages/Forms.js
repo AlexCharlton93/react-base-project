@@ -1,7 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { Container, Table, Button } from "react-bootstrap";
+import { formsQuery } from "../actions/forms";
 
 const ComponentWrapper = styled.section`
     p {
@@ -74,7 +75,14 @@ const FormsTable = ({ data }) => {
     );
 };
 
-const Forms = ({ forms }) => {
+const Forms = () => {
+    const dispatch = useDispatch();
+    const forms = useSelector((state) => state.forms);
+
+    useEffect(() => {
+        dispatch(formsQuery().runMocked());
+    }, []);
+
     return (
         <ComponentWrapper>
             <Container>
@@ -85,8 +93,4 @@ const Forms = ({ forms }) => {
     );
 };
 
-const mapStateToProps = (state) => ({
-    forms: state.forms,
-});
-
-export default connect(mapStateToProps, {})(Forms);
+export default Forms;

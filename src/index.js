@@ -10,7 +10,6 @@ import reducer from "./reducers";
 import { PersistGate } from "redux-persist/integration/react";
 import "./scss/index.scss";
 import App from "./App";
-import { formsQuery } from "./actions/forms";
 
 const persistConfig = {
     key: "root",
@@ -31,8 +30,6 @@ const store = createStore(
 );
 
 let persistor = persistStore(store);
-
-store.dispatch(formsQuery().runMocked());
 
 render(
     <Provider store={store}>
