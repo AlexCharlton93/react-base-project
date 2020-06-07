@@ -7,7 +7,7 @@ import thunk from 'redux-thunk'
 import reducer from './reducers'
 import './scss/index.scss';
 import App from './App';
-import { getAllForms } from "./actions/forms";
+import { formsQuery } from "./actions/forms";
 
 const middleware = [ thunk ];
 if (process.env.NODE_ENV !== 'production') {
@@ -19,7 +19,7 @@ const store = createStore(reducer, composeEnhancers(
     applyMiddleware(...middleware)
   ));
 
-store.dispatch(getAllForms());
+store.dispatch(formsQuery().runMocked());
 
 render(
   <Provider store={store}>

@@ -1,10 +1,10 @@
 import { FORMS_GET } from "../../constants/ActionTypes";
 
-const forms = (state = {}, action) => {
-    switch (action.type) {
+const forms = (state = {}, {type, data}) => {
+    switch (type) {
         case FORMS_GET:
-            if(!action.forms) return state;
-            return action.forms;
+            if(!data) return state;
+            return data;
         default:
             return state;
     }
