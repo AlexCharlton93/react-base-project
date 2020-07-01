@@ -7,7 +7,11 @@ export const formsQuery = (query = {}) => ({
     runMocked: () => getMockedForms(),
 });
 
-// Todo: Add getForms and hook up to an actual API
+// export const getForms = () => (dispatch) => {
+//     forms.getForms((forms) => {
+//         dispatch({type: types.FORMS_GET, data: forms});
+//     });
+// };
 
 export const getMockedForms = () => (dispatch) => {
     forms.getMockedForms((forms) => {

@@ -81,7 +81,7 @@ const Forms = () => {
 
     useEffect(() => {
         dispatch(formsQuery().runMocked());
-    }, []);
+    }, [dispatch]);
 
     return (
         <ComponentWrapper>
