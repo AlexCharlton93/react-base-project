@@ -3,11 +3,9 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Home from '../pages/Home'
-import Login from '../pages/Login';
-import Register from '../pages/Register';
-import Forms from '../pages/Forms';
-import FormBuilder from '../pages/FormBuilder';
+import Home from '../Pages/Home'
+import Login from '../Pages/Login';
+import Register from '../Pages/Register';
 
 export default function Routes() {
     return (
@@ -20,12 +18,6 @@ export default function Routes() {
             </Route>
             <Route path="/register">
               <Register />
-            </Route>
-            <Route path="/forms/:id">
-              <FormBuilder />
-            </Route>
-            <Route path="/forms">
-              <Forms />
             </Route>
         </Switch>
     );

@@ -1,1 +1,1 @@
-export const FORMS_GET = 'FORMS_GET';
+export const EXAMPLE_GET = 'EXAMPLE_GET';

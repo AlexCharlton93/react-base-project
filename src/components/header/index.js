@@ -35,12 +35,11 @@ export default function Header() {
     <HeaderWrapper>
       <Navbar expand="sm">
         <Container>
-          <Navbar.Brand href="/">DynoForm</Navbar.Brand>
+          <Navbar.Brand href="/">React App</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Link to="/">Home</Link>
-              <Link to="/forms">Forms</Link>
             </Nav>
             <NavRight pullRight>
                 <Link to="/login">Login</Link>
