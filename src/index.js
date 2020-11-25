@@ -1,25 +1,25 @@
-import React from "react";
-import { render } from "react-dom";
-import { createStore, applyMiddleware, compose } from "redux";
-import { Provider } from "react-redux";
-import { createLogger } from "redux-logger";
-import thunk from "redux-thunk";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import reducer from "./reducers";
-import { PersistGate } from "redux-persist/integration/react";
-import "./scss/index.scss";
-import App from "./App";
+import React from 'react';
+import { render } from 'react-dom';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import { createLogger } from 'redux-logger';
+import thunk from 'redux-thunk';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import reducer from './reducers';
+import { PersistGate } from 'redux-persist/integration/react';
+import './scss/index.scss';
+import App from './App';
 
 const persistConfig = {
-    key: "root",
+    key: 'root',
     storage,
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);
 
 const middleware = [thunk];
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
     middleware.push(createLogger());
 }
 
@@ -37,5 +37,5 @@ render(
             <App />
         </PersistGate>
     </Provider>,
-    document.getElementById("root")
+    document.getElementById('root')
 );
