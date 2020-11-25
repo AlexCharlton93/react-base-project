@@ -1,0 +1,13 @@
+{
+    "extends": [
+        "airbnb",
+        "prettier",
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "plugins": ["prettier"],
+    "rules": {
+        "no-unused-vars": "error",
+        "no-trailing-spaces": "error",
+    }
+}
