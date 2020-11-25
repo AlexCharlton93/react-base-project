@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Row, Button, Col } from 'react-bootstrap';
 import axios from 'axios';
 
+// TODO: This needs refactoring to be broken into it's own api/actions/reducers layer
 const Submit = async (e, email, password) => {
   e.preventDefault();
   try {
@@ -12,12 +13,13 @@ const Submit = async (e, email, password) => {
         password,
       }
     );
+
+    // TODO: Set token in local storage or similar?
+    console.log('token', response.data.token);
   } 
   catch (error) {
     console.log(error);
   }
-
-  console.log('token', response.data.token);
 };
 
 export default function Login() {
