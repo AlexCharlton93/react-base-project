@@ -16,7 +16,7 @@ const Submit = async (e, email, password) => {
 
     // TODO: Set token in local storage or similar?
     console.log('token', response.data.token);
-  } 
+  }
   catch (error) {
     console.log(error);
   }
