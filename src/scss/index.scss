@@ -1,4 +1,14 @@
-// External
 @import "~bootstrap/scss/bootstrap";
 
 @import "variables.scss";
+
+.login,
+.image {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url('/login-image.jpg');
+  background-size: cover;
+  background-position: center center;
+}
