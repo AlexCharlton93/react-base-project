@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
-import { Form, Row, Button, Col } from 'react-bootstrap';
 import axios from 'axios';
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 // TODO: This needs refactoring to be broken into it's own api/actions/reducers layer
 const Submit = async (e, email, password) => {
@@ -27,36 +32,66 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   return (
-    <div className="container-fluid">
-      <div className="row no-gutter">
+    <Container fluid>
+      <Row>
         <div className="col-md-6 d-none d-md-flex bg-image" />
         <div className="col-md-6 bg-light">
           <div className="login d-flex align-items-center py-5">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-10 col-xl-7 mx-auto">
-                  <h3 className="display-4">Split page!</h3>
-                  <p className="text-muted mb-4">Create a login split page using Bootstrap 4.</p>
-                  <form>
-                    <div className="form-group mb-3">
-                      <input id="inputEmail" type="email" placeholder="Email address" required="" className="form-control rounded-pill border-0 shadow-sm px-4" />
-                    </div>
-                    <div className="form-group mb-3">
-                      <input id="inputPassword" type="password" placeholder="Password" required="" className="form-control rounded-pill border-0 shadow-sm px-4 text-primary" />
-                    </div>
+            <Container>
+              <Row>
+                <Col lg={10} xl={7} className="mx-auto">
+                  <h3 className="display-4">Login</h3>
+                  <Form>
+                    <InputGroup className="mb-3">
+                      <Form.Control
+                        id="email"
+                        type="email"
+                        className="form-control border-0 shadow-sm px-4"
+                        onChange={(event) => setEmail(event.target.value)}
+                        placeholder="Email Address"
+                        required
+                      />
+                    </InputGroup>
+                    <InputGroup className="mb-3">
+                      <Form.Control
+                        id="password"
+                        type="password"
+                        className="form-control border-0 shadow-sm px-4 text-primary"
+                        onChange={(event) => setPassword(event.target.value)}
+                        placeholder="Password"
+                        required
+                      />
+                    </InputGroup>
                     <div className="custom-control custom-checkbox mb-3">
-                      <input id="customCheck1" type="checkbox" checked className="custom-control-input" />
-                      <label htmlFor="customCheck1" className="custom-control-label">Remember password</label>
+                      <Form.Control
+                        id="rememberMe"
+                        className="custom-control-input"
+                        type="checkbox"
+                        checked
+                      />
+                      <label
+                        htmlFor="rememberMe"
+                        className="custom-control-label"
+                      >
+                        Remember me
+                      </label>
                     </div>
-                    <button type="submit" className="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
-                  </form>
-                </div>
-              </div>
-            </div>
+                    <Button
+                      id="submit"
+                      className="btn btn-primary btn-block text-uppercase mb-2 shadow-sm"
+                      onClick={(event) => Submit(event, email, password)}
+                      type="submit"
+                    >
+                      Login
+                    </Button>
+                  </Form>
+                </Col>
+              </Row>
+            </Container>
           </div>
         </div>
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 }
 
