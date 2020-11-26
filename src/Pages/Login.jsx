@@ -22,46 +22,42 @@ const Submit = async (e, email, password) => {
   }
 };
 
-export default function Login() {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   return (
-    <Row>
-      <Col xs="12" md="6">
-        Image here with overlay information
-      </Col>
-      <Col xs="12" md="6">
-        <h2>Login</h2>
-        <Form>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Remember Me?" />
-          </Form.Group>
-          <Button
-            onClick={(e) => Submit(e, email, password)}
-            ariant="primary"
-            type="submit"
-          >
-            Submit
-          </Button>
-        </Form>
-      </Col>
-    </Row>
+    <div className="container-fluid">
+      <div className="row no-gutter">
+        <div className="col-md-6 d-none d-md-flex bg-image" />
+        <div className="col-md-6 bg-light">
+          <div className="login d-flex align-items-center py-5">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-10 col-xl-7 mx-auto">
+                  <h3 className="display-4">Split page!</h3>
+                  <p className="text-muted mb-4">Create a login split page using Bootstrap 4.</p>
+                  <form>
+                    <div className="form-group mb-3">
+                      <input id="inputEmail" type="email" placeholder="Email address" required="" className="form-control rounded-pill border-0 shadow-sm px-4" />
+                    </div>
+                    <div className="form-group mb-3">
+                      <input id="inputPassword" type="password" placeholder="Password" required="" className="form-control rounded-pill border-0 shadow-sm px-4 text-primary" />
+                    </div>
+                    <div className="custom-control custom-checkbox mb-3">
+                      <input id="customCheck1" type="checkbox" checked className="custom-control-input" />
+                      <label htmlFor="customCheck1" className="custom-control-label">Remember password</label>
+                    </div>
+                    <button type="submit" className="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
+
+export default Login;
