@@ -1,3 +1,5 @@
-export const Types = {
+const actionTypes = {
   LOGIN: 'LOGIN',
 };
+
+export { actionTypes as default }
