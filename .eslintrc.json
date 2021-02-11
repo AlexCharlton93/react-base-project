@@ -33,6 +33,7 @@
                 "caseSensitive": true,
                 "natural": true
             }
-        ]
+        ],
+        "import/prefer-default-export": "off"
     }
 }
