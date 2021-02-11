@@ -4,7 +4,7 @@ import Home from '../Pages/Home';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 
-export default function Routes() {
+const Routes = () => {
   return (
     <Switch>
       <Route exact path="/">
@@ -19,3 +19,5 @@ export default function Routes() {
     </Switch>
   );
 }
+
+export default Routes;

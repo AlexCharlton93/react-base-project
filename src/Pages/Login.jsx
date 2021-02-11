@@ -12,6 +12,7 @@ const Submit = async (e, email, password) => {
   e.preventDefault();
   try {
     const response = await axios.post(
+      // TODO: process.env
       'http://localhost:3001/api/1.0/auth/login',
       {
         emailAddress: email,
@@ -19,7 +20,7 @@ const Submit = async (e, email, password) => {
       }
     );
 
-    // TODO: Set token in local storage or similar?
+    // TODO: Set token in local storage or similar
     console.log('token', response.data.token);
   }
   catch (error) {

@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react';
 
-export default function Register() {
+const Register = () => {
   return (
     <p>Register</p>
   );
 }
+
+export default Register;

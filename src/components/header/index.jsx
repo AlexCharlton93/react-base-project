@@ -30,7 +30,7 @@ const HeaderWrapper = styled.section`
 
 const NavRight = styled.section``;
 
-export default function Header() {
+const Header = () => {
   return (
     <HeaderWrapper>
       <Navbar expand="sm">
@@ -42,8 +42,8 @@ export default function Header() {
               <Link to="/">Home</Link>
             </Nav>
             <NavRight pullRight>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
+              <Link to="/login">Login</Link>
+              <Link to="/register">Register</Link>
             </NavRight>
           </Navbar.Collapse>
         </Container>
@@ -51,3 +51,5 @@ export default function Header() {
     </HeaderWrapper>
   );
 }
+
+export default Header;

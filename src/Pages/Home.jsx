@@ -8,7 +8,7 @@ const HomeWrapper = styled.section`
   }
 `;
 
-export default function Home() {
+const Home = () => {
   return (
     <HomeWrapper>
       <Container>
@@ -17,3 +17,5 @@ export default function Home() {
     </HomeWrapper>
   );
 }
+
+export default Home;
