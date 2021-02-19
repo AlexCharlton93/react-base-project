@@ -1,36 +1,22 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { actionAuthenticate } from '../actions/ActionAuthenticate';
 
-// TODO: This needs refactoring to be broken into it's own api/actions/reducers layer
-const Submit = async (e, email, password) => {
-  e.preventDefault();
-  try {
-    const response = await axios.post(
-      // TODO: process.env
-      'http://localhost:3001/api/1.0/auth/login',
-      {
-        emailAddress: email,
-        password,
-      }
-    );
-
-    // TODO: Set token in local storage or similar
-    console.log('token', response.data.token);
-  }
-  catch (error) {
-    console.log(error);
-  }
-};
-
-const Login = () => {
+const Login = ({ authenticate }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const Submit = (event) => {
+    event.preventDefault();
+    authenticate(email, password);
+  };
 
   return (
     <Container fluid>
@@ -96,4 +82,14 @@ const Login = () => {
   );
 }
 
-export default Login;
+Login.propTypes = {
+  authenticate: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = dispatch => ({
+  authenticate: (email, password) => {
+    actionAuthenticate(dispatch, email, password);
+  },
+});
+
+export default connect(undefined, mapDispatchToProps)(Login);
