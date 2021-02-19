@@ -1,4 +1,4 @@
-import { EXAMPLE_GET } from '../../Constants/ActionTypes';
+import { EXAMPLE_GET } from '../../constants/ActionTypes';
 
 const example = (state = {}, {type, data}) => {
   switch (type) {
