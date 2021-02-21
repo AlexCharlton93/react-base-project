@@ -11,8 +11,7 @@ export const actionAuthenticate = async(dispatch, email, password) => {
 
   try {
     const { data } = await axios.post(
-      // TODO: process.env
-      `http://localhost:3001/api/1.0/${AUTHENTICATE_URI}`,
+      `${process.env.REACT_APP_NODE_API_URI}${AUTHENTICATE_URI}`,
       {
         emailAddress: email,
         password,

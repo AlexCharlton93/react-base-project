@@ -11,8 +11,7 @@ export const actionUserRegister = async(dispatch, email, password, confirmPasswo
 
   try {
     const { data } = await axios.post(
-      // TODO: process.env
-      `http://localhost:3001/api/1.0/${USER_URI}`,
+      `${process.env.REACT_APP_NODE_API_URI}${USER_URI}`,
       {
         confirmPassword,
         emailAddress: email,
