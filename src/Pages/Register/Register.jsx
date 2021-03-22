@@ -21,7 +21,12 @@ const Register = ({ register }) => {
 
   const Submit = (event) => {
     event.preventDefault();
-    register(email, password, confirmPassword);
+    const user = {
+      confirmPassword,
+      email,
+      password,
+    }
+    register(user);
   };
 
   return (
@@ -102,8 +107,8 @@ Register.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  register: (email, password, confirmPassword) => {
-    actionUserRegister(dispatch, email, password, confirmPassword);
+  register: (user) => {
+    actionUserRegister(dispatch, user);
   },
 });
 

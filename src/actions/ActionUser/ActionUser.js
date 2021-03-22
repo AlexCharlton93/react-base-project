@@ -6,16 +6,16 @@ export const USER_REGISTER_FAIL = 'ActionUserRegisterFail';
 
 const USER_URI = 'user';
 
-export const actionUserRegister = async(dispatch, email, password, confirmPassword) => {
+export const actionUserRegister = async(dispatch, user) => {
   dispatch({ type: USER_REGISTER_START });
 
   try {
     const { data } = await axios.post(
       `${process.env.REACT_APP_NODE_API_URI}${USER_URI}`,
       {
-        confirmPassword,
-        emailAddress: email,
-        password,
+        confirmPassword: user.confirmPassword,
+        emailAddress: user.email,
+        password: user.password
       }
     );
 
