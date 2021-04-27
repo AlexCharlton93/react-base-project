@@ -18,10 +18,17 @@ export const actionAuthenticate = async(dispatch, email, password) => {
       }
     );
 
-    dispatch({ type: AUTHENTICATE_SUCCESS });
     localStorage.setItem('token', data.token);
+
+    dispatch({
+      data,
+      type: AUTHENTICATE_SUCCESS,
+    });
   }
   catch (error) {
-    dispatch({ type: AUTHENTICATE_FAIL });
+    dispatch({
+      data: error.error,
+      type: AUTHENTICATE_FAIL,
+    });
   }
 };

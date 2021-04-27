@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toastr } from 'react-redux-toastr';
 
 export const USER_REGISTER_START = 'ActionUserRegisterStart';
 export const USER_REGISTER_SUCCESS = 'ActionUserRegisterSuccess';
@@ -20,11 +21,17 @@ export const actionUserRegister = async(dispatch, user) => {
     );
 
     dispatch({
-      payload: data,
+      data,
       type: USER_REGISTER_SUCCESS,
     });
-  }
-  catch (error) {
-    dispatch({ type: USER_REGISTER_FAIL });
+  }  catch (error) {
+    const errorMessage = error.response.data.message ? error.response.data.message : error.response.statusText;
+
+    dispatch({
+      data: error.error,
+      type: USER_REGISTER_FAIL,
+    });
+
+    toastr.error('Error', `${errorMessage}`);
   }
 };
