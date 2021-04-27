@@ -15,6 +15,12 @@ import Typography from '@material-ui/core/Typography';
 import { useStyles } from './Login.styles';
 import { actionAuthenticate } from '../../actions/ActionAuthenticate';
 
+/**
+ * View for showing the login page
+ *
+ * @param {Function} authenticate - Redux action to authenticate the user
+ * @returns {React.Component}
+ */
 const Login = ({ authenticate }) => {
   const classes = useStyles();
   const [email, setEmail] = useState('');

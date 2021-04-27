@@ -8,6 +8,11 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useStyles } from './Header.styles';
 
+/**
+ * Component for showing the base project header
+ *
+ * @returns {React.Component}
+ */
 const Header = () => {
   const classes = useStyles();
 

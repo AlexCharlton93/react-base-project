@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * View for showing the dashboard
+ *
+ */
 const Dashboard = () => {
   return (
     <div className="dashboard-wrapper">

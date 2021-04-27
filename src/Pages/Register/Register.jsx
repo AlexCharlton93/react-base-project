@@ -13,6 +13,12 @@ import Container from '@material-ui/core/Container';
 import { useStyles } from './Register.styles';
 import { actionUserRegister } from '../../actions/ActionUser';
 
+/**
+ * View for showing the register page
+ *
+ * @param {Function} register - Redux action to register a user
+ * @returns {React.Component}
+ */
 const Register = ({ register }) => {
   const classes = useStyles();
   const [email, setEmail] = useState('');

@@ -1,6 +1,6 @@
 import { AUTHENTICATE_SUCCESS } from '../../actions/ActionAuthenticate';
 
-const ReducerAuth = (state = {}, { data, type}) => {
+const ReducerAuth = (state = {}, { data, type }) => {
   switch (type) {
     case AUTHENTICATE_SUCCESS:
       if (!data) return state;
