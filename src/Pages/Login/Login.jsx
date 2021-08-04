@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -18,17 +17,17 @@ import { actionAuthenticate } from '../../actions/ActionAuthenticate';
 /**
  * View for showing the login page
  *
- * @param {Function} authenticate - Redux action to authenticate the user
  * @returns {React.Component}
  */
-const Login = ({ authenticate }) => {
+const Login = () => {
+  const dispatch = useDispatch();
   const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const Submit = (event) => {
     event.preventDefault();
-    authenticate(email, password);
+    dispatch(actionAuthenticate(email, password));
   };
 
   return (
@@ -101,14 +100,4 @@ const Login = ({ authenticate }) => {
   );
 }
 
-Login.propTypes = {
-  authenticate: PropTypes.func.isRequired,
-};
-
-const mapDispatchToProps = dispatch => ({
-  authenticate: (email, password) => {
-    actionAuthenticate(dispatch, email, password);
-  },
-});
-
-export default connect(undefined, mapDispatchToProps)(Login);
+export default Login;
