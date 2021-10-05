@@ -25,7 +25,7 @@ const Register = ({ register }) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const Submit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const user = {
       confirmPassword,
@@ -91,7 +91,7 @@ const Register = ({ register }) => {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={(event) => Submit(event, email, password)}
+            onClick={event => handleSubmit(event)}
           >
             Sign Up
           </Button>

@@ -14,11 +14,6 @@ import Typography from '@material-ui/core/Typography';
 import { useStyles } from './Login.styles';
 import { actionAuthenticate } from '../../actions/ActionAuthenticate';
 
-/**
- * View for showing the login page
- *
- * @returns {React.Component}
- */
 const Login = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -27,7 +22,7 @@ const Login = () => {
 
   const Submit = (event) => {
     event.preventDefault();
-    dispatch(actionAuthenticate(email, password));
+    dispatch(actionAuthenticate(dispatch, email, password));
   };
 
   return (
@@ -77,7 +72,7 @@ const Login = () => {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={(event) => Submit(event, email, password)}
+              onClick={(event) => Submit(event)}
             >
               Sign In
             </Button>
