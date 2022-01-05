@@ -12,13 +12,11 @@ import Container from '@material-ui/core/Container';
 import { useStyles } from './Register.styles';
 import { actionUserRegister } from '../../actions/ActionUser';
 
-/**
- * View for showing the register page
- *
- * @param {Object} history - Users navigation history
- * @returns {React.Element}
- */
-const Register = ({ history }) => {
+type ComponentProps = {
+  history: String[];
+};
+
+const Register: React.VFC<ComponentProps> = ({ history }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const [email, setEmail] = useState('');
@@ -32,7 +30,7 @@ const Register = ({ history }) => {
       email,
       password,
     }
-    await dispatch(actionUserRegister(dispatch, user));
+    await dispatch(actionUserRegister(user));
     history.push('/dashboard');
   };
 

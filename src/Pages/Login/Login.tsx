@@ -14,7 +14,11 @@ import Typography from '@material-ui/core/Typography';
 import { useStyles } from './Login.styles';
 import { actionAuthenticate } from '../../actions/ActionAuthenticate';
 
-const Login = ({ history }) => {
+type ComponentProps = {
+  history: String[];
+};
+
+const Login: React.VFC<ComponentProps> = ({ history }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const [email, setEmail] = useState('');
@@ -22,7 +26,7 @@ const Login = ({ history }) => {
 
   const Submit = async (event) => {
     event.preventDefault();
-    await dispatch(actionAuthenticate(dispatch, email, password));
+    await dispatch(actionAuthenticate(email, password));
     history.push('/dashboard');
   };
 

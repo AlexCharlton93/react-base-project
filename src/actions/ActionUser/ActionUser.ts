@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { toastr } from 'react-redux-toastr';
+import { AppDispatch } from '../../redux';
 
 export const USER_REGISTER_START = 'ActionUserRegisterStart';
 export const USER_REGISTER_SUCCESS = 'ActionUserRegisterSuccess';
@@ -7,7 +8,7 @@ export const USER_REGISTER_FAIL = 'ActionUserRegisterFail';
 
 const USER_URI = 'user';
 
-export const actionUserRegister = async(dispatch, user) => {
+export const actionUserRegister = async(user) => async(dispatch: AppDispatch) => {
   dispatch({ type: USER_REGISTER_START });
 
   try {

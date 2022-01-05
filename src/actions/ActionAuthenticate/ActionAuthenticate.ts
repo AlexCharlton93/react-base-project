@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { AppDispatch } from '../../redux';
 
 export const AUTHENTICATE_START = 'ActionAuthenticateStart';
 export const AUTHENTICATE_SUCCESS = 'ActionAuthenticateSuccess';
@@ -6,7 +7,7 @@ export const AUTHENTICATE_FAIL = 'ActionAuthenticateFail';
 
 const AUTHENTICATE_URI = 'auth/login';
 
-export const actionAuthenticate = async(dispatch, email, password) => {
+export const actionAuthenticate = (email: string, password: string) => async(dispatch: AppDispatch) => {
   dispatch({ type: AUTHENTICATE_START });
 
   try {
@@ -17,6 +18,8 @@ export const actionAuthenticate = async(dispatch, email, password) => {
         password,
       }
     );
+
+    console.log("data", data);
 
     localStorage.setItem('token', data.token);
 
