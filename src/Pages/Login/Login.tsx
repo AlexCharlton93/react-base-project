@@ -14,15 +14,16 @@ import Typography from '@material-ui/core/Typography';
 import { useStyles } from './Login.styles';
 import { actionAuthenticate } from '../../actions/ActionAuthenticate';
 
-const Login = () => {
+const Login = ({ history }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const Submit = (event) => {
+  const Submit = async (event) => {
     event.preventDefault();
-    dispatch(actionAuthenticate(dispatch, email, password));
+    await dispatch(actionAuthenticate(dispatch, email, password));
+    history.push('/dashboard');
   };
 
   return (
