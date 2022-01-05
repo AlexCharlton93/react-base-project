@@ -19,8 +19,6 @@ export const actionAuthenticate = (email: string, password: string) => async(dis
       }
     );
 
-    console.log("data", data);
-
     localStorage.setItem('token', data.token);
 
     dispatch({
