@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,23 +15,25 @@ import { actionUserRegister } from '../../actions/ActionUser';
 /**
  * View for showing the register page
  *
- * @param {Function} register - Redux action to register a user
- * @returns {React.Component}
+ * @param {Object} history - Users navigation history
+ * @returns {React.Element}
  */
-const Register = ({ register }) => {
+const Register = ({ history }) => {
+  const dispatch = useDispatch();
   const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const user = {
       confirmPassword,
       email,
       password,
     }
-    register(user);
+    await dispatch(actionUserRegister(dispatch, user));
+    history.push('/dashboard');
   };
 
   return (
@@ -108,14 +109,4 @@ const Register = ({ register }) => {
   );
 }
 
-Register.propTypes = {
-  register: PropTypes.func.isRequired,
-};
-
-const mapDispatchToProps = dispatch => ({
-  register: (user) => {
-    actionUserRegister(dispatch, user);
-  },
-});
-
-export default connect(undefined, mapDispatchToProps)(Register);
+export default Register;
