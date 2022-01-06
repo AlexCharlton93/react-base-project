@@ -1,38 +1,37 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
+import { useDispatch } from 'react-redux';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import { useStyles } from './Register.styles';
 import { actionUserRegister } from '../../actions/ActionUser';
 
-/**
- * View for showing the register page
- *
- * @param {Function} register - Redux action to register a user
- * @returns {React.Component}
- */
-const Register = ({ register }) => {
+type ComponentProps = {
+  history: String[];
+};
+
+const Register: React.VFC<ComponentProps> = ({ history }) => {
+  const dispatch = useDispatch();
   const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const user = {
       confirmPassword,
       email,
       password,
     }
-    register(user);
+    await dispatch(actionUserRegister(user));
+    history.push('/dashboard');
   };
 
   return (
@@ -95,7 +94,8 @@ const Register = ({ register }) => {
           >
             Sign Up
           </Button>
-          <Grid container justify="flex-end">
+          <Grid>
+          {/* <Grid container justify="flex-end"> */}
             <Grid item>
               <Link href="/login" variant="body2">
                 Already have an account? Sign in
@@ -108,14 +108,4 @@ const Register = ({ register }) => {
   );
 }
 
-Register.propTypes = {
-  register: PropTypes.func.isRequired,
-};
-
-const mapDispatchToProps = dispatch => ({
-  register: (user) => {
-    actionUserRegister(dispatch, user);
-  },
-});
-
-export default connect(undefined, mapDispatchToProps)(Register);
+export default Register;

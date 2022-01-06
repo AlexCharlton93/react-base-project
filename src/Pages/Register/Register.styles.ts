@@ -16,6 +16,6 @@ export const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(8),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: 20
   },
 }));
