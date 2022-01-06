@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import { useStyles } from './Register.styles';
 import { actionUserRegister } from '../../actions/ActionUser';
 
@@ -94,7 +94,8 @@ const Register: React.VFC<ComponentProps> = ({ history }) => {
           >
             Sign Up
           </Button>
-          <Grid container justify="flex-end">
+          <Grid>
+          {/* <Grid container justify="flex-end"> */}
             <Grid item>
               <Link href="/login" variant="body2">
                 Already have an account? Sign in

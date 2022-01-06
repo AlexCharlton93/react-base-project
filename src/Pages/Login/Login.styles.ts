@@ -2,15 +2,15 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
   avatar: {
-    backgroundColor: theme.palette.secondary.main,
-    margin: theme.spacing(1),
+    backgroundColor: 'black',
+    margin: theme.spacing(2),
   },
   form: {
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(2),
     width: '100%',
   },
   image: {
-    backgroundColor: theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    backgroundColor: 'grey',
     backgroundImage: 'url(/login-image.jpg)',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -20,7 +20,7 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
-    margin: theme.spacing(8, 4),
+    margin: theme.spacing(8,4),
   },
   root: {
     height: '100vh',

@@ -3,6 +3,8 @@ import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header';
 import Routes from './common/Routes';
 import { UserContext } from './common/User';
+import { ThemeProvider } from '@mui/material/styles';
+import Theme from './common/Theme';
 
 const App = () => {
   const user = useContext(UserContext);
@@ -13,11 +15,13 @@ const App = () => {
   }, [user]);
 
   return (
-    <BrowserRouter>
-      {isAuthenticated ? <Header /> : null}
-      <Routes />
-    </BrowserRouter>
+    <ThemeProvider theme={Theme}>
+      <BrowserRouter>
+        {isAuthenticated ? <Header /> : null}
+        <Routes />
+      </BrowserRouter>
+    // </ThemeProvider>
   );
-}
+};
 
 export default App;

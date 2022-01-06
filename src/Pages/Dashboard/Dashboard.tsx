@@ -1,10 +1,6 @@
 import React from 'react';
 
-/**
- * View for showing the dashboard
- *
- */
-const Dashboard = () => {
+const Dashboard: React.VFC = () => {
   return (
     <div className="dashboard-wrapper">
       <div className="dashboard-content">
