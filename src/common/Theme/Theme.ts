@@ -1,6 +1,6 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createTheme } from '@mui/material/styles';
 
-const Theme = createMuiTheme({
+const Theme = createTheme({
   spacing: 8,
   palette: {
     primary: {
