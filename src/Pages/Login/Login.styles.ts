@@ -2,7 +2,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
   avatar: {
-    backgroundColor: 'black',
+    root: {
+      backgroundColor: 'red !important',
+    },
     margin: theme.spacing(2),
   },
   form: {

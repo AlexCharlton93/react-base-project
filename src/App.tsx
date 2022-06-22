@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header';
 import Routes from './common/Routes';
 import { UserContext } from './common/User';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import Theme from './common/Theme';
 
 const App = () => {
