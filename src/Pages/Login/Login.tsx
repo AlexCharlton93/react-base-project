@@ -74,7 +74,8 @@ const Login: React.VFC<ComponentProps> = ({ history }) => {
             <Button
               type="submit"
               fullWidth
-              variant="contained"
+              // See Theme.ts on how custom variants are created
+              variant="custom"
               color="primary"
               className={classes.submit}
               onClick={(event) => Submit(event)}

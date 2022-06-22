@@ -2,8 +2,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
   avatar: {
-    root: {
-      backgroundColor: 'red !important',
+    styleOverrides: {
+      root: {
+        backgroundColor: 'red !important',
+      },
     },
     margin: theme.spacing(2),
   },
@@ -22,7 +24,7 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
-    margin: theme.spacing(8,4),
+    margin: theme.spacing(8, 4),
   },
   root: {
     height: '100vh',
