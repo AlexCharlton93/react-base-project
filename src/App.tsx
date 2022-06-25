@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Routes from './common/Routes';
 import { UserContext } from './common/User';
 import { ThemeProvider } from '@mui/material/styles';
-import Theme from './common/Theme';
+import DefaultTheme from './common/DefaultTheme';
 
 const App = () => {
   const user = useContext(UserContext);
@@ -15,7 +15,7 @@ const App = () => {
   }, [user]);
 
   return (
-    <ThemeProvider theme={Theme}>
+    <ThemeProvider theme={DefaultTheme}>
       <BrowserRouter>
         {isAuthenticated ? <Header /> : null}
         <Routes />
