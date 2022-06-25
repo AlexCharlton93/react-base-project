@@ -13,6 +13,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { useStyles } from './Login.styles';
 import { actionAuthenticate } from '../../actions/ActionAuthenticate';
+import { buttonStyle } from './Login.styles';
 
 type ComponentProps = {
   history: String[];
@@ -76,8 +77,9 @@ const Login: React.VFC<ComponentProps> = ({ history }) => {
               fullWidth
               // See Theme.ts on how custom variants are created
               variant="custom"
-              color="primary"
-              className={classes.submit}
+              // color="primary"
+              // Used to declare additional styles
+              // sx={{ ...buttonStyle, color: 'pink' }}
               onClick={(event) => Submit(event)}
             >
               Sign In

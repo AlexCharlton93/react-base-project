@@ -22,7 +22,7 @@ const DefaultTheme = createTheme({
           props: { variant: 'custom' },
           style: {
             color: 'white',
-            backgroundColor: '#FFFFF'
+            backgroundColor: '#007bff'
           },
         },
       ],

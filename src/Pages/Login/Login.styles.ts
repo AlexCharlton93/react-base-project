@@ -25,7 +25,8 @@ export const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
 }));
+
+export const buttonStyle = {
+  backgroundColor: { sm: "brown", md: "yellow" },
+};
