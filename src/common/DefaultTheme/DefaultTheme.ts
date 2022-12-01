@@ -31,7 +31,7 @@ const DefaultTheme = createTheme({
   spacing: 8,
   palette: {
     primary: {
-      main: "#007bff",
+      main: "#3b5998",
     },
     secondary: {
       main: "#007bff",
